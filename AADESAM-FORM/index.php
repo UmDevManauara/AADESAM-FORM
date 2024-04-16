@@ -33,8 +33,8 @@
     <h1>Acesso Restrito</h1>
         <form action="login.php" method="POST">
             <div class="mb-3">
-                <label for="usuario">Usuario</label>
-                <input type="text" name="usuario"  class="form-control">
+                <label for="email">Email</label>
+                <input type="email" name="email"  class="form-control">
             </div>
             <div class="mb-3">
                 <label for="senha">Senha</label>
@@ -74,7 +74,7 @@
                             </div>
                             <div>
                                 <div class="mb-3">
-                                <input type="submit" value="Enviar" class="btn btn-primary">
+                                     <button type="submit" class="btn btn-primary">Logar</button>
 
                                 </div>
                             </div>

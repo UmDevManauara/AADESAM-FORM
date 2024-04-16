@@ -1,10 +1,11 @@
 <?php
 session_start();
 if (empty($_SESSION)) {
-    print "<a href=\"dashboard.php\"></a>";
+    print "<script>alert('Acesso não autorizado');</script>";
+    print "<script>location.href='index.php';
+    </script>";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,10 +35,10 @@ if (empty($_SESSION)) {
                         <a class="nav-link active" aria-current="page" href="dashboard.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=novo">Novo Usúario</a>
+                        <a class="nav-link" href="?page=inscrever"> Inscreva-se</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=listar">Listar Usúarios</a>
+                        <a class="nav-link" href="?page=listar">Meus concursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=contato">Contato</a>
@@ -46,11 +47,9 @@ if (empty($_SESSION)) {
                     
             </div>
             <?php 
-            if (empty($_SESSION)) {
-                print "Faça seu <a href=\"tela-login.php\">Login</a>";
-            }else{ print"Olá, ". @$_SESSION['nome'];
+            print"Olá, ". $_SESSION['nome'];
             print "<a href='logout.php' class='btn btn-dander'>Sair</a>";
-            }
+            
             ?>
         </div>
     </nav>
@@ -62,25 +61,25 @@ if (empty($_SESSION)) {
           <?php
           include("config.php");
           switch (@$_REQUEST["page"]) {
-            case "novo":
-              include("novo-usuario.php");
+            case "inscrever":
+              include("inscrever-concurso.php");
             break;
             case "listar":
-              include ("listar-usuario.php");
+              include ("listar-concurso.php");
             break;
             case "salvar";
-              include("salvar-usuario.php");
+              include("salvar-concurso.php");
+              break;
+            case "editar";
+              include("editar-concurso.php");
               break;
 
-            case "editar";
-              include("editar-usuario.php");
-              break;
             case "contato";
-            include("contato.php");
-            break;
+                include("contato.php");
+                break;
 
             default:
-              print "<h1>Bem Vindos!</h1>";
+              print "<h1>Bem Vindo!</h1>";
           }
           ?>
       </div>

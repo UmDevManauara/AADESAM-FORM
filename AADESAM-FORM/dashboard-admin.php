@@ -1,10 +1,11 @@
 <?php
 session_start();
 if (empty($_SESSION)) {
-    print "<a href=\"dashboard.php\"></a>";
+    print "<script>alert('Acesso não autorizado');</script>";
+    print "<script>location.href='index.php';
+    </script>";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,7 +23,7 @@ if (empty($_SESSION)) {
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">AADESAM</a>
+            <a class="navbar-brand" href="dashboard.php">ADMNISTRADOR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -46,11 +47,9 @@ if (empty($_SESSION)) {
                     
             </div>
             <?php 
-            if (empty($_SESSION)) {
-                print "Faça seu <a href=\"tela-login.php\">Login</a>";
-            }else{ print"Olá, ". @$_SESSION['nome'];
+            print"Olá, ". $_SESSION['nome'];
             print "<a href='logout.php' class='btn btn-dander'>Sair</a>";
-            }
+            
             ?>
         </div>
     </nav>
@@ -80,7 +79,7 @@ if (empty($_SESSION)) {
             break;
 
             default:
-              print "<h1>Bem Vindos!</h1>";
+              print "<h1>Bem Vindo!</h1>";
           }
           ?>
       </div>
