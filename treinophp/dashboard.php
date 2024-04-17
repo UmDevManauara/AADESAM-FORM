@@ -1,12 +1,4 @@
-<?php
-// echo var_dump($_SESSION);
-// session_start();
-// if (empty($_SESSION)) {
-//     print "<script>alert('Acesso não autorizado');</script>";
-//     print "<script>location.href='index.php';
-//     </script>";
-// }
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

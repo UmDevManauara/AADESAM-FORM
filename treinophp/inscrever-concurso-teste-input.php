@@ -1,6 +1,4 @@
-<?php 
-var_dump($_POST);
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,22 +12,17 @@ var_dump($_POST);
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </head>
-
 <body>
 
     <div class="container-fluid">
         <div>
             <?php
-            // echo "<p>" . var_dump($_POST) . "</p>";
+            echo "<p>" . var_dump($_POST) . "</p>";
             ?>
         </div>
-        <form class="row g-3" action="salvar-concurso.php" method="POST">
+        <form class="row g-3" action="resultado-inscrever.php" method="POST">
             <input type="hidden" name="acao" value="cadastrar">
             <h1>Faça sua inscrição</h1>
-            <div class="mb-3">
-                <label for="nome-form" class="form-label">Seu Nome:</label>
-                <input type="text" class="form-control" id="inome-form" name="nome-form" placeholder="digite seu nome...">
-            </div>
 
             <div class="input-group mb-3">
                 <label class="input-group-text" for="estado">Seu estado</label>
@@ -72,7 +65,7 @@ var_dump($_POST);
             </div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" name="trabalhou">
-                <label class="form-check-label" for="trabalhou">Já trabalhou na Área?</label>
+                <label class="form-check-label" for="trabalhou" >Já trabalhou na Área?</label>
             </div>
             <div class="form-check form-switch">
                 <label class="form-check-label" for="faculdade">Possue ensino superior?</label>
@@ -81,13 +74,20 @@ var_dump($_POST);
             </div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" name="doutorado">
-                <label class="form-check-label" for="doutorado">Possue doutorado?</label>
+                <label class="form-check-label" for="doutorado" >Possue doutorado?</label>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-primary me-md-2" type="reset">Limpar</button>
                 <button class="btn btn-primary" type="submit">Enviar</button>
             </div>
         </form>
+        <?php
+    
+   
+    
+
+    ?>
+      
 
 
     </div>
