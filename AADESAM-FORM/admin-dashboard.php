@@ -1,11 +1,10 @@
 <?php
-// echo var_dump($_SESSION);
-// session_start();
-// if (empty($_SESSION)) {
-//     print "<script>alert('Acesso não autorizado');</script>";
-//     print "<script>location.href='index.php';
-//     </script>";
-// }
+session_start();
+if (empty($_SESSION)) {
+    print "<script>alert('Acesso não autorizado');</script>";
+    print "<script>location.href='index.html';
+    </script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,7 +23,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">AADESAM</a>
+            <a class="navbar-brand" href="dashboard.php">ADMNISTRADOR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -36,10 +35,10 @@
                         <a class="nav-link active" aria-current="page" href="dashboard.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=inscrever"> Inscreva-se</a>
+                        <a class="nav-link" href="?page=novo">Novo Usúario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=listar">Meus concursos</a>
+                        <a class="nav-link" href="?page=listar">Listar Usúarios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=contato">Contato</a>
@@ -48,8 +47,8 @@
                     
             </div>
             <?php 
-            // print"Olá, ". $_SESSION['nome'];
-            // print "<a href='logout.php' class='btn btn-dander'>Sair</a>";
+            print"Olá, ". $_SESSION['nome'];
+            print "<a href='logout.php' class='btn btn-dander'>Sair</a>";
             
             ?>
         </div>
@@ -62,22 +61,22 @@
           <?php
           include("config.php");
           switch (@$_REQUEST["page"]) {
-            case "inscrever":
-              include("inscrever-concurso.php");
+            case "novo":
+              include("novo-usuario.php");
             break;
             case "listar":
-              include ("listar-concurso.php");
+              include ("listar-usuario.php");
             break;
             case "salvar";
-              include("salvar-concurso.php");
-              break;
-            case "editar";
-              include("editar-concurso.php");
+              include("salvar-usuario.php");
               break;
 
+            case "editar";
+              include("editar-usuario.php");
+              break;
             case "contato";
-                include("contato.php");
-                break;
+            include("contato.php");
+            break;
 
             default:
               print "<h1>Bem Vindo!</h1>";

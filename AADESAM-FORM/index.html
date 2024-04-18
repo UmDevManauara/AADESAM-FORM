@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,68 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+        </script>
+    <style>
+        .footer {
+            font-size: 0.8em;
+            position: absolute;
+            height: 5vh;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            top: 95vh;
+            left: 50vw;
+            text-align: center;
+            color: gray;
 
-    <!-- <style>
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Acesso Restrito</h1>
+        <form action="login.php" method="POST">
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" class="form-control">
+            </div>
+            <a href="novo-usuario.php"
+                class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"> Não
+                tem
+                uma conta?</a>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button style class="btn btn-primary me-md-2" type="submit">Enviar</button>
+            </div>
+
+        </form>
+
+
+
+    </div>
+
+
+
+
+</body>
+<footer>
+    <p class="footer">Site desenvolvido por Matheus Alves <a href="https://github.com/UmDevManauara" target="_blank" >Um Dev Manauara</a></p>
+</footer>
+
+</html>
+
+
+<!-- CODIGO ANTIGO -->
+
+
+<!-- <style>
     body {
         background-color: #F2F2F2;
     }
@@ -26,31 +86,7 @@
     </style> -->
 
 
-</head>
-<body>
-
-    <div class="container">
-    <h1>Acesso Restrito</h1>
-        <form action="login.php" method="POST">
-            <div class="mb-3">
-                <label for="email">Email</label>
-                <input type="email" name="email"  class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="senha">Senha</label>
-                <input type="password" name="senha"  class="form-control">
-            </div>
-            <input type="submit" value="Enviar" class="btn btn-primary">
-        </form>
-    </div>
-
-
-
-
-
-
-
-    <!-- <div class="login">
+<!-- <div class="login">
         <div class="container">
             <div class="row">
                 <div class="col-lg- 4 offset - 4">
@@ -91,7 +127,3 @@
 
 
     </div> -->
-
-</body>
-
-</html>

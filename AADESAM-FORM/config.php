@@ -18,7 +18,7 @@ $conexao = new mysqli($nomeServidor, $usuario, $senha, $bancodedados);
     if($conexao ->connect_errno){
         echo "não foi possivel conectar";
     } else{
-        echo "<P>Você esta conectado ao banco de dados</P>";
+        echo "<p class = \"conectado\">Você esta conectado ao banco de dados</p> ";
     }
     echo "<p></p>";
 //
