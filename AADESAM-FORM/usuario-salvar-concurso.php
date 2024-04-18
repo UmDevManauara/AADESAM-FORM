@@ -1,9 +1,7 @@
 <?php
-echo var_dump($_POST);
  if (empty($_SESSION)) {
-     print "<script>alert('Acesso não autorizado');</script>";
-     print "<script>location.href='index.php';
-    </script>";
+    print "<script>alert('Acesso não autorizado');</script>";
+    print "<script>location.href='index.php';</script>";
 }
 ?>
 <!-- <button onclick="javascript:history.go(-1)">Voltar</button> -->
@@ -11,11 +9,13 @@ echo var_dump($_POST);
 include("config.php");
 switch ($_REQUEST["acao"]){
     case 'cadastrar':
+        
         //NÃO PONTUA
+        $nome =  $_SESSION["nome"];
         $estado = $_POST["estado"];
         $concurso = $_POST["concurso"];
         $vaga = $_POST["vaga"];
-        $nomeForm = $_POST["nome-form"];
+        
 
         echo "<p>O estado dele é $estado</p>";
         echo "<p>O concurso dele é $concurso</p>";
@@ -38,22 +38,29 @@ switch ($_REQUEST["acao"]){
 
         //CONEXAO AO  BANCO DE DADOS
         //comando da query(pedido SQL com os valores)
-        $sql = "INSERT INTO teste (nome, estado, concurso, vaga, contador) VALUE ('{$nomeForm}','{$estado}','{$concurso}','{$vaga}','{$resultado}')";
-        //variavel com resultado da conexão e do pedido
+            $sql = "UPDATE acessousuarios SET 
+                    estado='{$estado}',
+                    concurso='{$concurso}',
+                    vaga='{$vaga}',
+                    contador='{$resultado}'
+                    WHERE nome = '{$nome}'";
+
         $res = $conexao->query($sql);
 
         //REGRA: se o resultado for verdadeiro o dado foi inserido 
         if($res==true){
-            print "<script>alert('O DADO FOI INSERIDO NA TABELA');</script>";
-            // print "<script>location.href='?page=listar'listar;</script>";
+            print "<script>alert('Inscrição concluida com sucesso!');</script>";
+            print "<script>location.href='?page=listar';</script>";
 
         }else{//SE NÃO, o dado não foi inserido.
             print "<script>alert('Não foi possivel acessar a tabela');</script>";
-            // print "<script>location.href='?page=listar'listar;</script>";
+            print "<script>location.href='?page=listar'listar;</script>";
         }
-
+    
 
         //CODIGO ANTIGO
+        // $sql = "INSERT INTO teste (nome, estado, concurso, vaga, contador) VALUE ('{$nomeForm}','{$estado}','{$concurso}','{$vaga}','{$resultado}')";
+        //variavel com resultado da conexão e do pedido
         // $nome = $_POST["nome"];
         // $email = $_POST["email"];
         // $senha = md5($_POST["senha"]);
@@ -79,7 +86,7 @@ switch ($_REQUEST["acao"]){
                         email='{$email}',
                         senha='{$senha}',
                         data_nasc='{$data_nasc}'
-                    WHERE id =". $_REQUEST["id"];
+                WHERE id =". $_REQUEST["id"];
         
 
         $res = $conexao->query($sql);
@@ -93,15 +100,27 @@ switch ($_REQUEST["acao"]){
         }
         break;
     case 'excluir':
-        $sql = "DELETE FROM usuarios WHERE id=".$_REQUEST["id"];
-        $res = $conexao->query($sql);
-        if($res==true){
-            print "<script>alert('Excluido com sucesso');</script>";
-            print "<script>location.href='?page=listar'</script>";
-        }else{
+            //confirmado que o Usuario se inscreveu antes prosseguindo
+            $nome =  $_SESSION["nome"];
+            $estado = '';
+            $concurso = "";
+            $vaga = "";
+            $resultado = "";
+            $sql = "UPDATE acessousuarios SET 
+                    estado='{$estado}',
+                    concurso='{$concurso}',
+                    vaga='{$vaga}',
+                    contador='{$resultado}'
+                    WHERE nome = '{$nome}'";
+        // $sql = "DELETE FROM acessousuarios WHERE id=".$_REQUEST["id"];
+         $res = $conexao->query($sql);
+         if($res==true){
+             print "<script>alert('Excluido com sucesso');</script>";
+             print "<script>location.href='?page=listar'</script>";
+         }else{
             print "<script>alert('Não foi possivel excluir');</script>";
-            print "<script>location.href='?page=listar'</script>";
-        }
+           print "<script>location.href='?page=listar'</script>";
+         }
         break;
     default:
         # code...

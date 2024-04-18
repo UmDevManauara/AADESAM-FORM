@@ -32,8 +32,8 @@
 <body>
 
     <div class="container">
-        <h1>Faça seu login</h1>
-        <form action="login.php" method="POST">
+        <h1>Acesso Restrito</h1>
+        <form action="adm-login.php" method="POST">
             <div class="mb-3">
                 <label for="email">Email</label>
                 <input type="email" name="email" class="form-control" required>
@@ -42,10 +42,6 @@
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" class="form-control" minlength="8" required>
             </div>
-            <a href="novo-usuario.html"
-                class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"> Não
-                tem
-                uma conta?</a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button style class="btn btn-primary me-md-2" type="submit">Enviar</button>
             </div>

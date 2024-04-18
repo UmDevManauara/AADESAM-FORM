@@ -9,7 +9,7 @@ $sql = "INSERT INTO acessousuarios (nome, email, senha, tipo) VALUE ('{$nomeLogi
 $res = $conexao->query($sql);
 if ($res == true) {
     print "<script>alert('cadastro com sucesso');</script>";
-    // print "<script>location.href='?page=listar'listar;</script>";
+    print "<script>location.href='index.html';</script>";
 } else {
     print "<script>alert('Não foi possivel cadastrar');</script>";
     // print "<script>location.href='?page=listar'listar;</script>";
