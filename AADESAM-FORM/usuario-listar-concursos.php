@@ -8,9 +8,9 @@ if (empty($_SESSION)) {
 
     <?php
     //confirmando se o usuario se inscreveu primeiramente
-    $nome =  $_SESSION["nome"];
+    $emailUser =  $_SESSION["email"];
     $sql = "SELECT * FROM acessousuarios
-    WHERE nome = '{$nome}'";
+    WHERE email = '{$emailUser}'";
 
     $res = $conexao->query($sql) or die($conexao->error);
     $row = $res->fetch_object();
@@ -22,19 +22,17 @@ if (empty($_SESSION)) {
         $vaga_user = $row->vaga;
         $contador_user = $row->contador;
         //print "<script>alert('Usuario encontrado');</script>";
-        print "<h1>Minhas Inscrições</h1>";
+        print "<h1>Minha Inscrição</h1>";
         if (isset($estado_user) && (empty($concurso_user) && (empty($vaga_user)))) {
             print "<br><p><b style = \"color: red\">Inscrição não encontrada!</b> realize sua inscrição.</p>";
             
         }else{
-            print "<p> Os campos não estão vazios, essa é sua inscrição</p>";
             $sql = "SELECT * FROM acessousuarios
-            WHERE nome = '{$nome}'";
+            WHERE email = '{$emailUser}'";
             $resultado = $conexao->query($sql);
             $quantidade = $resultado->num_rows;
         
             if ($quantidade > 0) {
-                print "A tabela foi conectada";
                 print "<table class ='table table-hover table-striped table-bordered'>";
                 print "<tr>";
                 //print "<th>#</th>";

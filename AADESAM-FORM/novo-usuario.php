@@ -16,6 +16,13 @@
             <h1>Cadastre-se</h1>
             <form action="usuario-cadastrar-novo.php" method="POST">
                 <div class="mb-3">
+                    <?php switch (@$_REQUEST["page"]) {
+                        case "existe":
+                          print"<p style = \"color: red\"> Email ja em uso</p>";
+                        break;            
+                        default:
+                          
+                      }?>
                     <label for="nome-login">Nome Completo</label>
                     <input type="text" name="nome-login" class="form-control" required minlength="4">
                 </div>

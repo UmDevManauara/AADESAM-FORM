@@ -54,7 +54,7 @@ if (empty($_SESSION)) {
 
         <div class="input-group mb-3">
             <label class="input-group-text" for="vaga">Vaga</label>
-            <select class="form-select" id="concurso" name="vaga" required>
+            <select class="form-select" id="vaga" name="vaga" required>
                 <option selected value="">Escolha...</option>
                 <option value="Médico">Médico</option>
                 <option value="Analista de Sistema">Analista de Sistema</option>

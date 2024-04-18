@@ -23,7 +23,7 @@ if (empty($_SESSION)) {
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">ADMNISTRADOR</a>
+            <a class="navbar-brand" href="admin-dashboard.php">ADMNISTRADOR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,10 +32,7 @@ if (empty($_SESSION)) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="dashboard.php">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="?page=novo">Novo Usúario</a>
+                        <a class="nav-link active" aria-current="page" href="admin-dashboard.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=listar">Listar Usúarios</a>
@@ -61,18 +58,18 @@ if (empty($_SESSION)) {
           <?php
           include("config.php");
           switch (@$_REQUEST["page"]) {
-            case "novo":
-              include("novo-usuario.php");
-            break;
+            // case "novo":
+            //   include("novo-usuario.php");
+            // break;
             case "listar":
-              include ("listar-usuario.php");
+              include ("admin-listar-usuario.php");
             break;
             case "salvar";
-              include("salvar-usuario.php");
+              include("admin-salvar-usuario.php");
               break;
 
             case "editar";
-              include("editar-usuario.php");
+              include("admin-editar-usuario.php");
               break;
             case "contato";
             include("contato.php");
